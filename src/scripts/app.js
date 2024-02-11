@@ -1,23 +1,23 @@
-const cartButton = document.querySelector('.fa-shopping-cart');
-        const cartItemsContainer = document.querySelector('.cart-items-container');
+const cartPreviewButton = document.querySelector('.fa-shopping-cart');
+const cartViewItems = document.querySelector('.cart-items-container');
+const cartItemCount = document.querySelector('.quantity-cart');
+const cartItemsContainer = document.querySelector('.cart-items');
+const cartTotalElement = document.querySelector('.cart-total');
+const cartButtons = document.querySelectorAll('.cart-btn');
+const cartItems = [];
 
-        cartButton.addEventListener('click', function() {
-            cartItemsContainer.style.display = cartItemsContainer.style.display === 'block' ? 'none' : 'block';
-        });
+
+cartPreviewButton.addEventListener('click', function() {
+    cartViewItems.style.display = cartViewItems.style.display === 'block' ? 'none' : 'block';
+});
+
 document.querySelectorAll('.cart-btn').forEach(button => {
     button.addEventListener('click', () => {
-        const cartCount = document.querySelector('.quantity-cart');
-        cartCount.textContent = parseInt(cartCount.textContent || 0) + 1;
+        cartItemCount.textContent = parseInt(cartItemCount.textContent || 0) + 1;
     });
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-    const cartItemsContainer = document.querySelector('.cart-items');
-    const cartTotalElement = document.querySelector('.cart-total');
-    const cartItems = [];
-
-    const cartButtons = document.querySelectorAll('.cart-btn');
-
     cartButtons.forEach(function (button) {
         button.addEventListener('click', function () {
             const box = this.closest('.box');
@@ -75,8 +75,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         updateCartTotal();
         
-        const removeIcons = document.querySelectorAll('.fa-times');
-        removeIcons.forEach(function (icon) {
+        const removeItemCart = document.querySelectorAll('.fa-times');
+        removeItemCart.forEach(function (icon) {
             icon.addEventListener('click', function () {
                 const index = parseInt(icon.getAttribute('data-index'));
                 removeItem(index);
