@@ -1,5 +1,9 @@
 :root {
-    --pink:#DEA057
+    --main-color:#DEA057;
+    --background-color:#fff;
+    --text-color-gray:#333;
+    --text-color2-gray2:#666;
+    --pink:pink;
 }
 
 *{
@@ -25,76 +29,18 @@ section {
     padding: 2rem 9%;
 }
 
-.heading {
-    text-align: center;
-    font-size: 4rem;
-    color: #333;
-    padding: 1rem;
-    margin: 2rem 0;
-    background: rgba(255, 51, 153, 0.05);
-}
-
-.heading span {
-    color: var(--pink);
-}
-
-.btn {
-    display: inline-block;
-    margin-top: 1rem;
-    border-radius: 5rem;
-    background: #333;
-    color: #fff;
-    padding: .9rem 3.5rem;
-    cursor: pointer;
-    font-size: 1.7rem;
-}
-
-.btn:hover {
-    background: var(--pink) ;
-}
-
 header {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    background-color: #fff;
+    background-color: var(--background-color);
     padding: 2rem 9%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     z-index: 1000;
-    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.1);
-}
-
-header .logo {
-    font-size: 3rem;
-    color: #333;
-    font-weight: bolder;
-}
-
-header .logo span {
-    color: var(--pink);
-}
-
-header .navbar a {
-    font-size: 2rem;
-    padding: 0 1.5rem;
-    color: #666;
-}
-
-header .navbar a:hover {
-    color: var(--pink);
-}
-
-header .icons a {
-    font-size: 2.5rem;
-    color: #333;
-    margin-left: 1.5rem;
-}
-
-header .icons a:hover {
-    color: var(--pink);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
 }
 
 header #toggler {
@@ -103,12 +49,166 @@ header #toggler {
 
 header .fa-bars {
     font-size: 3rem;
-    color: #333;
-    border-radius: .5rem;
-    padding: .5rem 1.5rem;
+    color: var(--text-color-gray);
+    border-radius: 0.5rem;
+    padding: 0.5rem 1.5rem;
     cursor: pointer;
-    border: .1rem solid rgba(0, 0, 0, 0.3);
+    border: 0.1rem solid rgba(0, 0, 0, 0.3);
     display: none;
+}
+
+header .logo {
+    font-size: 3rem;
+    color: var(--text-color-gray);
+    font-weight: bolder;
+}
+
+header .logo span {
+    color: var(--main-color);
+}
+
+header .navbar a {
+    font-size: 2rem;
+    padding: 0 1.5rem;
+    color: var(--text-color2-gray2);
+}
+
+header .navbar a:hover {
+    color: var(--main-color);
+}
+
+header .icons a {
+    font-size: 2.5rem;
+    color: var(--text-color-gray);
+    margin-left: 1.5rem;
+}
+
+header .icons a:hover {
+    color: var(--main-color);
+}
+
+header .fa-shopping-cart span{
+    background: var(--main-color);
+    border-radius: 50%;
+    color: var(--background-color);
+    position: absolute;
+    top: 27%;
+    left: 87%;
+    padding: 3px 5px;
+    font-size: 12px;
+}
+
+header .cart-items-container {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    height: calc(100vh - 9.5rem);
+    width: 30rem;
+    background: var(--background-color);
+    padding: 0 1.5rem;
+    display: none;
+    max-height: 500px; 
+    overflow-y: auto;
+}
+
+header .cart-items-container .cart-item {
+    position: relative;
+    margin: 2rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: rgba(255, 51, 153, 0.05);
+
+}
+
+header .cart-items-container .cart-item .fa-times {
+    position: absolute;
+    display: flex;
+    top: 0.4rem;
+    right: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--text-color-gray);
+}
+
+header .cart-items-container .cart-item .fa-times:hover {
+    color: var(--main-color);
+}
+
+header .cart-items-container .cart-item img {
+    height: 7rem;
+}
+
+header .cart-items-container .cart-item .content h3 {
+    font-size: 2rem;
+    color: var(--text-color-gray);
+    padding-bottom: 0.5rem;
+}
+
+header .cart-items-container .cart-item .content .price {
+    font-size: 1.5rem;
+    color: #999;
+}
+
+header .cart-items-container .cart-item .content .quantity {
+    font-size: 1.5rem;
+    border: 1px solid #999;
+    display: inline-block;
+    padding: 0.1rem 0.1rem;
+    margin-top: 8px;
+    color: #999;
+}
+
+.quantity-btn {
+    font-size: 1.5rem;
+    background-color: transparent;
+    padding: 0.1rem 0.6rem;
+    cursor: pointer;
+    color: #999;
+}
+
+.quantity-btn:hover {
+    background-color: var(--main-color); /* Cor de fundo verde mais escura ao passar o mouse */
+}
+
+.decrease-btn {
+    border-right: 1px solid #999;
+}
+
+.increase-btn {
+    border-left: 1px solid #999;
+}
+
+.item-quantity {
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.divider {
+    margin: 20px 0;
+    border-top: 1px solid #999;
+}
+
+.cart-total {
+    margin-top: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.shop-btn {
+    margin-top: 1rem;
+    display: inline-block;
+    padding: .9rem 3rem;
+    font-size: 1.7rem;
+    color: var(--background-color);
+    background: var(--main-color);
+    cursor: pointer;
+}
+
+.shop-btn:hover {
+    letter-spacing: 0.2rem;
+
 }
 
 .home {
@@ -126,21 +226,49 @@ header .fa-bars {
 
 .home .content h3 {
     font-size: 6rem;
-    color: #333;
+    color: var(--text-color-gray);
 }
 
 .home .content span {
     font-size: 3.5rem;
-    color: var(--pink);
+    color: var(--main-color);
     padding: 1rem 0;
     line-height: 1.5;
 }
 
 .home .content p {
     font-size: 1.5rem;
-    color: #2e2c2c;
+    color: #cac9c9;
     padding: 1rem 0;
     line-height: 1.5;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 1rem;
+    border-radius: 5rem;
+    background: var(--text-color-gray);
+    color: var(--background-color);
+    padding: 0.9rem 3.5rem;
+    cursor: pointer;
+    font-size: 1.7rem;
+}
+
+.btn:hover {
+    background: var(--main-color);
+}
+
+.heading {
+    text-align: center;
+    font-size: 4rem;
+    color: var(--text-color-gray);
+    padding: 1rem;
+    margin: 2rem 0;
+    background: rgba(255, 51, 153, 0.05);
+}
+
+.heading span {
+    color: var(--main-color);
 }
 
 .about .row  {
@@ -159,9 +287,9 @@ header .fa-bars {
 
 .about .row .video-container img {
     width: 100%;
-    border: 1.5rem solid #fff;
-    border-radius: .5rem;
-    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.1);
+    border: 1.5rem solid var(--background-color);
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
     height: 100%;
     object-fit: cover;
 }
@@ -171,7 +299,7 @@ header .fa-bars {
     top: 15%;
     transform: translateY(-50%);
     font-size: 3rem;
-    background: #fff;
+    background: var(--background-color);
     width: 100%;
     padding: 1rem 2rem;
     text-align: center;
@@ -183,7 +311,7 @@ header .fa-bars {
     top: 85%;
     transform: translateY(-50%);
     font-size: 3rem;
-    background: #fff;
+    background: var(--background-color);
     width: 100%;
     padding: 1rem 2rem;
     text-align: center;
@@ -195,13 +323,13 @@ header .fa-bars {
 
 .about .row .content h3 {
     font-size: 3rem;
-    color: #333;
+    color: var(--text-color-gray);
 }
 
 .about .row .content p {
     font-size: 1.5rem;
     color: #9999;
-    padding: .5rem 0;
+    padding: 0.5rem 0;
     padding-top: 1rem;
     line-height: 1.5;
 }
@@ -216,8 +344,8 @@ header .fa-bars {
 }
 
 .icons-container .icons {
-    background: #fff;
-    border: .1rem solid rgba(0, 0, 0, 0.1);
+    background: var(--background-color);
+    border: 0.1rem solid rgba(0, 0, 0, 0.1);
     padding: 2rem;
     display: flex;
     align-items: center;
@@ -230,8 +358,8 @@ header .fa-bars {
 }
 
 .icons-container .icons h3 {
-    color: #333;
-    padding-bottom: .5rem;
+    color: var(--text-color-gray);
+    padding-bottom: 0.5rem;
     font-size: 1.5rem;
 }
 
@@ -248,9 +376,9 @@ header .fa-bars {
 
 .products .box-container .box {
     flex: 1 1 30rem;
-    box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, 0.1);
-    border-radius: .5rem;
-    border: .1rem solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    border: 0.1rem solid rgba(0, 0, 0, 0.1);
     position: relative;
 }
 
@@ -258,12 +386,12 @@ header .fa-bars {
     position: absolute;
     top: 1rem;
     left: 1rem;
-    padding: .7rem 1rem;
+    padding: 0.7rem 1rem;
     font-size: 2rem;
-    color: var(--pink);
-    background: rgba(255, 51, 153, 0.05);
+    color: var(--main-color);
+    background: rgba(255, 143, 51, 0.05);
     z-index: 1;
-    border-radius: .5rem;
+    border-radius: 0.5rem;
 
 }
 
@@ -299,18 +427,18 @@ header .fa-bars {
     line-height: 5rem;
     font-size: 2rem;
     width: 30%;
-    background: var(--pink);
-    color: #fff;
+    background: var(--main-color);
+    color: var(--background-color);
 }
 
 .products .box-container .box .image .icons .cart-btn {
-    border-left: .1rem solid #fff7;
-    border-right: .1rem solid #fff7;
+    border-left: 0.1rem solid #fff7;
+    border-right: 0.1rem solid #fff7;
     width: 100%;
 }
 
 .products .box-container .box .image .icons a:hover {
-    background: #333;
+    background: var(--text-color-gray);
 }
 
 .products .box-container .box .content {
@@ -320,12 +448,12 @@ header .fa-bars {
 
 .products .box-container .box .content h3 {
     font-size: 2.5rem;
-    color: #333;
+    color: var(--text-color-gray);
 }
 
 .products .box-container .box .content .price {
     font-size: 2.5rem;
-    color: var(--pink);
+    color: var(--main-color);
     font-weight: bolder;
     padding-top: 1rem;
 }
@@ -345,8 +473,8 @@ header .fa-bars {
 
 .review .box-container .box {
     flex: 1 1 30rem;
-    box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, 0.1);
-    border-radius: .5rem;
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
     padding: 3rem 2rem;
     position: relative;
     border: 1rem solid rgba(0, 0, 0, 0.1);
@@ -361,7 +489,7 @@ header .fa-bars {
 }
 
 .review .box-container .box .stars i {
-    color: var(--pink);
+    color: var(--main-color);
     font-size: 2rem;
 }
 
@@ -388,7 +516,7 @@ header .fa-bars {
 
 .review .box-container .box .user h3 {
     font-size: 2rem;
-    color: #333;
+    color: var(--text-color-gray);
 }
 
 .review .box-container .box .user span {
@@ -406,29 +534,29 @@ header .fa-bars {
 .contact .row form {
     flex: 1 1 40rem;
     padding: 2rem 2.5rem;
-    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
     border: 1rem solid rgba(0, 0, 0, 0.1);
-    background: #fff;
-    border-radius: .5rem;
+    background: var(--background-color);
+    border-radius: 0.5rem;
 }
 
 .contact .row .image img {
-    width: 100%;
+    width: 70%;
 }
 
 .contact .row  form .box {
     padding: 1rem;
     font-size: 1.7rem;
-    color: #333;
+    color: var(--text-color-gray);
     text-transform: none;
     border: .1rem solid rgba(0, 0, 0, 0.1);
-    border-radius: .5rem;
-    margin: .7rem 0;
+    border-radius: 0.5rem;
+    margin: 0.7rem 0;
     width: 100%;
 }
 
 .contact .row  form .box:focus {
-    border-color: var(--pink);
+    border-color: var(--main-color);
 }
 
 .contact .row  form textarea {
@@ -447,14 +575,14 @@ header .fa-bars {
 }
 
 .footer .box-container .box h3 {
-    color: #333;
+    color: var(--text-color-gray);
     font-size: 2.5rem;
     padding: 1rem 0;
 }
 
 .footer .box-container .box a {
     display: block;
-    color: #666;
+    color: var(--text-color2-gray2);
     font-size: 1.5rem;
     padding: 1rem 0;
 }
@@ -479,134 +607,13 @@ header .fa-bars {
 }
 
 .footer .credit span {
-    color: var(--pink);
+    color: var(--main-color);
 }
 
 .footer .credit a {
-    color: #333;
+    color: var(--text-color-gray);
 }
 
-header .fa-shopping-cart span{
-    background: var(--pink);
-    border-radius: 50%;
-    color: #fff;
-    position: absolute;
-    top: 27%;
-    left: 87%;
-    padding: 3px 5px;
-    font-size: 12px;
-}
-
-header .cart-items-container {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    height: calc(100vh - 9.5rem);
-    width: 30rem;
-    background: #fff;
-    padding: 0 1.5rem;
-    display: none;
-    max-height: 500px; 
-    overflow-y: auto;
-}
-
-header .cart-items-container .cart-item {
-    position: relative;
-    margin: 2rem 0;
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    background: rgba(255, 51, 153, 0.05);
-
-}
-
-header .cart-items-container .cart-item .fa-times {
-    position: absolute;
-    display: flex;
-    top: 0.4rem;
-    right: 1rem;
-    font-size: 2rem;
-    cursor: pointer;
-    color: #333;
-}
-
-header .cart-items-container .cart-item .fa-times:hover {
-    color: var(--pink);
-}
-
-header .cart-items-container .cart-item img {
-    height: 7rem;
-}
-
-header .cart-items-container .cart-item .content h3 {
-    font-size: 2rem;
-    color: var(--pink);
-    padding-bottom: .5rem;
-}
-
-header .cart-items-container .cart-item .content .price {
-    font-size: 1.5rem;
-    color: #999;
-}
-
-header .cart-items-container .cart-item .content .quantity {
-    font-size: 1.5rem;
-    border: 1px solid;
-    display: inline-block;
-    padding: .1rem 0.1rem;
-    margin-top: 8px;
-}
-
-.quantity-btn {
-    font-size: 1.5rem;
-    background-color: transparent;
-    padding: 0.1rem 0.6rem;
-    cursor: pointer;
-}
-
-.quantity-btn:hover {
-    background-color: var(--pink); /* Cor de fundo verde mais escura ao passar o mouse */
-}
-
-.decrease-btn {
-    border-right: 1px solid;
-}
-
-.increase-btn {
-    border-left: 1px solid;
-}
-
-.item-quantity {
-    padding-left: 4px;
-    padding-right: 4px;
-}
-
-.shop-btn {
-    margin-top: 1rem;
-    display: inline-block;
-    padding: .9rem 3rem;
-    font-size: 1.7rem;
-    color: #fff;
-    background: var(--pink);
-    cursor: pointer;
-}
-
-.shop-btn:hover {
-    letter-spacing: .2rem;
-
-}
-
-.cart-total {
-    margin-top: 1rem;
-    font-size: 2rem;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-.divider {
-    margin: 20px 0;
-    border-top: 1px solid #ccc;
-}
 
 @media (max-width:991px) {
     html {
@@ -648,7 +655,7 @@ header .cart-items-container .cart-item .content .quantity {
     header .navbar a {
         margin: 1.5rem;
         padding: 1.5rem;
-        background: #fff;
+        background: var(--background-color);
         border: .1rem solid rgba(0, 0, 0, 0.1);
         display: block;
     }

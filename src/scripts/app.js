@@ -6,15 +6,8 @@ const cartTotalElement = document.querySelector('.cart-total');
 const cartButtons = document.querySelectorAll('.cart-btn');
 const cartItems = [];
 
-
 cartPreviewButton.addEventListener('click', function() {
     cartViewItems.style.display = cartViewItems.style.display === 'block' ? 'none' : 'block';
-});
-
-document.querySelectorAll('.cart-btn').forEach(button => {
-    button.addEventListener('click', () => {
-        cartItemCount.textContent = parseInt(cartItemCount.textContent || 0) + 1;
-    });
 });
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -46,7 +39,13 @@ document.addEventListener('DOMContentLoaded', function () {
             cartItems.push(newItem);
         }
 
+        updateCart();
+    }
+
+    function updateCart() {
         renderCartItems();
+        updateCartTotal();
+        updateCartItemCount();
     }
 
     function renderCartItems() {
@@ -73,8 +72,6 @@ document.addEventListener('DOMContentLoaded', function () {
             cartItemsContainer.appendChild(cartItem);
         });
 
-        updateCartTotal();
-        
         const removeItemCart = document.querySelectorAll('.fa-times');
         removeItemCart.forEach(function (icon) {
             icon.addEventListener('click', function () {
@@ -102,22 +99,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function removeItem(index) {
         const removedItem = cartItems.splice(index, 1)[0];
-
-        renderCartItems();
+        updateCart();
     }
 
     function decreaseQuantity(index) {
         if (cartItems[index].quantity > 1) {
             cartItems[index].quantity--;
-
-            renderCartItems();
+            updateCart();
         }
     }
 
     function increaseQuantity(index) {
         cartItems[index].quantity++;
-
-        renderCartItems();
+        updateCart();
     }
 
     function updateCartTotal() {
@@ -125,7 +119,14 @@ document.addEventListener('DOMContentLoaded', function () {
         cartItems.forEach(function (item) {
             total += item.price * item.quantity;
         });
-
         cartTotalElement.textContent = `Total: R$${total.toFixed(2)}`;
+    }
+
+    function updateCartItemCount() {
+        let count = 0;
+        cartItems.forEach(item => {
+            count += item.quantity;
+        });
+        cartItemCount.textContent = count;
     }
 });
