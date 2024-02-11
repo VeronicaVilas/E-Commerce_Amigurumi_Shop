@@ -486,6 +486,128 @@ header .fa-bars {
     color: #333;
 }
 
+header .fa-shopping-cart span{
+    background: var(--pink);
+    border-radius: 50%;
+    color: #fff;
+    position: absolute;
+    top: 27%;
+    left: 87%;
+    padding: 3px 5px;
+    font-size: 12px;
+}
+
+header .cart-items-container {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    height: calc(100vh - 9.5rem);
+    width: 30rem;
+    background: #fff;
+    padding: 0 1.5rem;
+    display: none;
+    max-height: 500px; 
+    overflow-y: auto;
+}
+
+header .cart-items-container .cart-item {
+    position: relative;
+    margin: 2rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: rgba(255, 51, 153, 0.05);
+
+}
+
+header .cart-items-container .cart-item .fa-times {
+    position: absolute;
+    display: flex;
+    top: 0.4rem;
+    right: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #333;
+}
+
+header .cart-items-container .cart-item .fa-times:hover {
+    color: var(--pink);
+}
+
+header .cart-items-container .cart-item img {
+    height: 7rem;
+}
+
+header .cart-items-container .cart-item .content h3 {
+    font-size: 2rem;
+    color: var(--pink);
+    padding-bottom: .5rem;
+}
+
+header .cart-items-container .cart-item .content .price {
+    font-size: 1.5rem;
+    color: #999;
+}
+
+header .cart-items-container .cart-item .content .quantity {
+    font-size: 1.5rem;
+    border: 1px solid;
+    display: inline-block;
+    padding: .1rem 0.1rem;
+    margin-top: 8px;
+}
+
+.quantity-btn {
+    font-size: 1.5rem;
+    background-color: transparent;
+    padding: 0.1rem 0.6rem;
+    cursor: pointer;
+}
+
+.quantity-btn:hover {
+    background-color: var(--pink); /* Cor de fundo verde mais escura ao passar o mouse */
+}
+
+.decrease-btn {
+    border-right: 1px solid;
+}
+
+.increase-btn {
+    border-left: 1px solid;
+}
+
+.item-quantity {
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.shop-btn {
+    margin-top: 1rem;
+    display: inline-block;
+    padding: .9rem 3rem;
+    font-size: 1.7rem;
+    color: #fff;
+    background: var(--pink);
+    cursor: pointer;
+}
+
+.shop-btn:hover {
+    letter-spacing: .2rem;
+
+}
+
+.cart-total {
+    margin-top: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.divider {
+    margin: 20px 0;
+    border-top: 1px solid #ccc;
+}
+
 @media (max-width:991px) {
     html {
         font-size: 55%;
